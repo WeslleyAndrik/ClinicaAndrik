@@ -1,0 +1,142 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use App\Paciente;
+
+class PacienteSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $pacientes = [
+            [
+                'nome' => 'Marcos Vinicius de Souza',
+                'cpf' => '284.918.372-56',
+                'rg' => '41.829.301-8',
+                'data_nascimento' => '1984-06-15',
+                'sexo' => 'M',
+                'telefone' => '(11) 98122-3344',
+                'email' => 'marcos.vinicius@gmail.com',
+                'tipo_sanguineo' => 'O+',
+                'alergias' => 'Dipirona e Frutos do mar',
+                'medicamentos_uso_continuo' => 'Losartana Potássica 50mg (1x ao dia)',
+                'historico_cirurgico' => 'Apendicectomia laparoscópica em 2018',
+                'convenio' => 'Unimed',
+                'numero_carteirinha' => '0054.9812.3391.00-1',
+                'contato_emergencia_nome' => 'Camila Souza (Esposa)',
+                'contato_emergencia_telefone' => '(11) 98122-3345',
+                'cep' => '04538-133',
+                'endereco' => 'Rua Joaquim Floriano',
+                'numero' => '466',
+                'bairro' => 'Itaim Bibi',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'observacoes' => 'Paciente hipertenso em acompanhamento regular com Dr. Carlos.',
+            ],
+            [
+                'nome' => 'Beatriz Helena de Castro',
+                'cpf' => '392.104.856-70',
+                'rg' => '32.194.882-0',
+                'data_nascimento' => '1992-11-28',
+                'sexo' => 'F',
+                'telefone' => '(11) 97412-8822',
+                'email' => 'beatriz.castro@outlook.com',
+                'tipo_sanguineo' => 'A+',
+                'alergias' => 'Penicilina e Látex',
+                'medicamentos_uso_continuo' => 'Anticoncepcional oral',
+                'historico_cirurgico' => 'Nenhum',
+                'convenio' => 'Bradesco Saúde',
+                'numero_carteirinha' => '782390145-02',
+                'contato_emergencia_nome' => 'Jorge de Castro (Pai)',
+                'contato_emergencia_telefone' => '(11) 97412-8811',
+                'cep' => '01414-001',
+                'endereco' => 'Alameda Santos',
+                'numero' => '1827',
+                'bairro' => 'Cerqueira César',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'observacoes' => 'Queixa de dermatite de contato e lesões solares.',
+            ],
+            [
+                'nome' => 'Antônio Carlos Moreira',
+                'cpf' => '109.837.261-16',
+                'rg' => '18.472.091-2',
+                'data_nascimento' => '1960-03-04',
+                'sexo' => 'M',
+                'telefone' => '(11) 99341-5520',
+                'email' => 'ac.moreira@uol.com.br',
+                'tipo_sanguineo' => 'B+',
+                'alergias' => 'Nenhuma conhecida',
+                'medicamentos_uso_continuo' => 'Metformina 850mg, Atenolol 25mg',
+                'historico_cirurgico' => 'Colecistectomia em 2012',
+                'convenio' => 'SulAmérica',
+                'numero_carteirinha' => '88921034-77',
+                'contato_emergencia_nome' => 'Teresa Moreira (Filha)',
+                'contato_emergencia_telefone' => '(11) 99341-5530',
+                'cep' => '04038-001',
+                'endereco' => 'Rua Domingos de Morais',
+                'numero' => '2140',
+                'bairro' => 'Vila Mariana',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'observacoes' => 'Diabético tipo 2 e lombalgia crônica.',
+            ],
+            [
+                'nome' => 'Larissa Prado Guimarães',
+                'cpf' => '441.928.375-01',
+                'rg' => '50.192.834-9',
+                'data_nascimento' => '1998-09-20',
+                'sexo' => 'F',
+                'telefone' => '(11) 98877-6655',
+                'email' => 'larissa.guimaraes@gmail.com',
+                'tipo_sanguineo' => 'AB+',
+                'alergias' => 'Sulfa e Anti-inflamatórios (AINES)',
+                'medicamentos_uso_continuo' => 'Nenhum',
+                'historico_cirurgico' => 'Nenhum',
+                'convenio' => 'Particular',
+                'numero_carteirinha' => null,
+                'contato_emergencia_nome' => 'Eduardo Guimarães (Irmão)',
+                'contato_emergencia_telefone' => '(11) 98877-6650',
+                'cep' => '05407-002',
+                'endereco' => 'Rua dos Pinheiros',
+                'numero' => '890',
+                'bairro' => 'Pinheiros',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'observacoes' => 'Atleta amadora, entorse no joelho direito durante treino de corrida.',
+            ],
+            [
+                'nome' => 'Fernando Henrique Lima',
+                'cpf' => '312.456.789-73',
+                'rg' => '29.384.756-1',
+                'data_nascimento' => '1976-08-12',
+                'sexo' => 'M',
+                'telefone' => '(11) 97654-3210',
+                'email' => 'fh.lima@empresa.com.br',
+                'tipo_sanguineo' => 'O-',
+                'alergias' => 'Iodo',
+                'medicamentos_uso_continuo' => 'Sinvastatina 20mg',
+                'historico_cirurgico' => 'Meniscectomia joelho esquerdo',
+                'convenio' => 'Amil',
+                'numero_carteirinha' => '90823412-33',
+                'contato_emergencia_nome' => 'Patrícia Lima (Esposa)',
+                'contato_emergencia_telefone' => '(11) 97654-3211',
+                'cep' => '04561-002',
+                'endereco' => 'Av. Engenheiro Luís Carlos Berrini',
+                'numero' => '1050',
+                'bairro' => 'Brooklin',
+                'cidade' => 'São Paulo',
+                'estado' => 'SP',
+                'observacoes' => 'Exames preventivos de rotina e acompanhamento cardiológico.',
+            ],
+        ];
+
+        foreach ($pacientes as $paciente) {
+            Paciente::updateOrCreate(['cpf' => $paciente['cpf']], $paciente);
+        }
+    }
+}

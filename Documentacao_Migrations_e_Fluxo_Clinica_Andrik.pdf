@@ -1,0 +1,702 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 7 0 R 9 0 R 11 0 R 13 0 R ] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 9637 >>
+stream
+0.85 0.88 0.92 RG 0.7 w 36 34 m 559.28 34 l S
+BT /F1 8 Tf 0.35 0.40 0.48 rg 36 22 Td (Clínica Andrik - Documentação Técnica de Migrations e Fluxo do Sistema | Página 1) Tj ET
+0.118 0.227 0.541 rg 36 749 523.28 48 re f
+BT /F2 14 Tf 1 1 1 rg 48 775 Td (CLÍNICA ANDRIK - DOCUMENTAÇÃO TÉCNICA) Tj ET
+BT /F1 9.5 Tf 0.82 0.88 0.98 rg 48 759 Td (Guia Completo das Migrations, Banco de Dados e Fluxo Passo a Passo do Sistema) Tj ET
+BT /F2 8.5 Tf 1 1 1 rg 414.28 775 Td (Laravel 7 | PHP 7.4 | SQLite / MySQL) Tj ET
+0.118 0.227 0.541 rg 36 709 523.28 20 re f
+BT /F2 10.5 Tf 1 1 1 rg 44 714 Td (1. O QUE SÃO AS MIGRATIONS E POR QUE SEGUEM ESTA ORDEM) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 689.8 Td (No Laravel, as Migrations \(localizadas em database/migrations/\) funcionam como o controle de versão da) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 676.4 Td (estrutura do banco de dados. Cada arquivo possui dois métodos: up\(\) para criar a tabela, colunas, índices e) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 663 Td (chaves estrangeiras \(Foreign Keys\), e down\(\) para desfazer a tabela caso seja executado um rollback.) Tj ET
+0.97 0.98 0.99 rg 36 584.8 523.28 70 re f
+0.78 0.83 0.89 RG 0.6 w 36 584.8 523.28 70 re S
+0.01 0.52 0.78 rg 36 584.8 3.5 70 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 641.8 Td (Regra de Integridade Referencial \(Ordem de Execução\)) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 628.8 Td (O Laravel executa os arquivos em ordem cronológica pelo prefixo do nome. Por isso, as tabelas) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 616.6 Td (base independentes \(1. users e 3. pacientes\) são criadas antes da tabela de agendamentos \(4.) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 604.4 Td (consultas\), que por sua vez é criada antes da tabela clínica \(5. prontuarios\). Isso garante) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 592.2 Td (que nenhuma chave estrangeira aponte para uma tabela que ainda não existe.) Tj ET
+0.118 0.227 0.541 rg 36 552.8 523.28 20 re f
+BT /F2 10.5 Tf 1 1 1 rg 44 557.8 Td (2. DETALHAMENTO TÉCNICO DAS 5 MIGRATIONS DO SISTEMA) Tj ET
+0.945 0.961 0.976 rg 36 522.8 523.28 18 re f
+0.118 0.227 0.541 rg 36 522.8 3.5 18 re f
+BT /F2 9.5 Tf 0.118 0.227 0.541 rg 45 527.3 Td (2.1. Migration 1: 2014_10_12_000000_create_users_table.php \(Tabela: users\)) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 506.6 Td (Armazena todos os usuários e profissionais da clínica, divididos em 3 perfis de acesso \(RBAC\): Direção Clínica) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 493.2 Td (\(admin\), Corpo Médico \(medico\) e Atendimento \(recepcao\).) Tj ET
+0.886 0.910 0.941 rg 36 467 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 467 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 473 Td (Coluna) Tj ET
+0.58 0.64 0.72 RG 0.5 w 136 485 m 136 467 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 141 473 Td (Tipo SQL) Tj ET
+0.58 0.64 0.72 RG 0.5 w 226 485 m 226 467 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 231 473 Td (Restrições / Índices) Tj ET
+0.58 0.64 0.72 RG 0.5 w 326 485 m 326 467 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 331 473 Td (Função no Sistema e Regras) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 439 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 456.5 Td (id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 467 m 136 439 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 456.5 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 467 m 226 439 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 456.5 Td (PK, Auto Increment) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 467 m 326 439 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 456.5 Td (Identificador único do usuário/profissional no) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 445.7 Td (banco.) Tj ET
+0.973 0.980 0.988 rg 36 411 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 411 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 428.5 Td (name) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 439 m 136 411 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 428.5 Td (VARCHAR\(255\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 439 m 226 411 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 428.5 Td (NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 439 m 326 411 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 428.5 Td (Nome completo. Para perfil medico, o Model User) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 417.7 Td (aplica automaticamente o prefixo "Dr. ".) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 383 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 400.5 Td (email) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 411 m 136 383 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 400.5 Td (VARCHAR\(255\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 411 m 226 383 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 400.5 Td (NOT NULL, UNIQUE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 411 m 326 383 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 400.5 Td (E-mail institucional utilizado no login \(não) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 389.7 Td (permite duplicidade\).) Tj ET
+0.973 0.980 0.988 rg 36 366 523 17 re f
+0.79 0.83 0.88 RG 0.5 w 36 366 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 372.5 Td (password) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 383 m 136 366 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 372.5 Td (VARCHAR\(255\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 383 m 226 366 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 372.5 Td (NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 383 m 326 366 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 372.5 Td (Senha criptografada com hash seguro Bcrypt.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 338 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 355.5 Td (role) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 366 m 136 338 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 355.5 Td (ENUM) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 366 m 226 338 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 355.5 Td (Default: recepcao) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 366 m 326 338 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 355.5 Td (Define permissões no Middleware CheckRole: admin,) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 344.7 Td (medico ou recepcao.) Tj ET
+0.973 0.980 0.988 rg 36 310 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 310 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 327.5 Td (crm) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 338 m 136 310 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 327.5 Td (VARCHAR\(50\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 338 m 226 310 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 327.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 338 m 326 310 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 327.5 Td (Registro no Conselho Regional de Medicina \(ex:) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 316.7 Td (CRM/PB 8412\). Obrigatório para médicos.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 282 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 299.5 Td (especialidade) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 310 m 136 282 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 299.5 Td (VARCHAR\(100\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 310 m 226 282 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 299.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 310 m 326 282 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 299.5 Td (Especialidade médica. Preenche e bloqueia) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 288.7 Td (automaticamente o campo Especialidade na consulta.) Tj ET
+0.973 0.980 0.988 rg 36 265 523 17 re f
+0.79 0.83 0.88 RG 0.5 w 36 265 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 271.5 Td (telefone) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 282 m 136 265 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 271.5 Td (VARCHAR\(30\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 282 m 226 265 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 271.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 282 m 326 265 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 271.5 Td (Telefone de contato do profissional com DDD.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 237 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 254.5 Td (ativo) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 265 m 136 237 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 254.5 Td (BOOLEAN) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 265 m 226 237 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 254.5 Td (Default: true) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 265 m 326 237 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 254.5 Td (Permite desativar o acesso ao login sem excluir o) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 243.7 Td (histórico de consultas/prontuários do médico.) Tj ET
+0.973 0.980 0.988 rg 36 209 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 209 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 226.5 Td (timestamps) Tj ET
+0.79 0.83 0.88 RG 0.5 w 136 237 m 136 209 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 141 226.5 Td (TIMESTAMP) Tj ET
+0.79 0.83 0.88 RG 0.5 w 226 237 m 226 209 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 226.5 Td (created_at /) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 231 215.7 Td (updated_at) Tj ET
+0.79 0.83 0.88 RG 0.5 w 326 237 m 326 209 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 226.5 Td (Auditoria automática de data/hora de cadastro e) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 331 215.7 Td (última alteração.) Tj ET
+0.945 0.961 0.976 rg 36 179 523.28 18 re f
+0.118 0.227 0.541 rg 36 179 3.5 18 re f
+BT /F2 9.5 Tf 0.118 0.227 0.541 rg 45 183.5 Td (2.2. Migration 2: 2019_08_19_000000_create_failed_jobs_table.php \(Tabela: failed_jobs\)) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 162.8 Td (Tabela nativa do Laravel para auditoria de tarefas em fila \(queues\) que falharem. Possui as colunas: id \(PK\),) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 149.4 Td (connection, queue, payload, exception e failed_at.) Tj ET
+0.945 0.961 0.976 rg 36 121.2 523.28 18 re f
+0.118 0.227 0.541 rg 36 121.2 3.5 18 re f
+BT /F2 9.5 Tf 0.118 0.227 0.541 rg 45 125.7 Td (2.3. Migration 3: 2020_03_01_000001_create_pacientes_table.php \(Tabela: pacientes\)) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 105 Td (Armazena a ficha cadastral completa do paciente, antecedentes clínicos, convênio e endereço validado na base) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 91.6 Td (dos Correios.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 15008 >>
+stream
+0.85 0.88 0.92 RG 0.7 w 36 34 m 559.28 34 l S
+BT /F1 8 Tf 0.35 0.40 0.48 rg 36 22 Td (Clínica Andrik - Documentação Técnica de Migrations e Fluxo do Sistema | Página 2) Tj ET
+0.886 0.910 0.941 rg 36 777 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 777 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 783 Td (Coluna) Tj ET
+0.58 0.64 0.72 RG 0.5 w 166 795 m 166 777 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 171 783 Td (Tipo SQL) Tj ET
+0.58 0.64 0.72 RG 0.5 w 254 795 m 254 777 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 259 783 Td (Restrições / Índices) Tj ET
+0.58 0.64 0.72 RG 0.5 w 346 795 m 346 777 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 351 783 Td (Função no Sistema e Validações Aplicadas) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 760 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 766.5 Td (id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 777 m 166 760 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 766.5 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 777 m 254 760 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 766.5 Td (PK, Auto Increment) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 777 m 346 760 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 766.5 Td (Identificador único do paciente.) Tj ET
+0.973 0.980 0.988 rg 36 732 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 732 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 749.5 Td (nome) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 760 m 166 732 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 749.5 Td (VARCHAR\(255\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 760 m 254 732 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 749.5 Td (NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 760 m 346 732 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 749.5 Td (Nome civil completo \(validado para aceitar) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 738.7 Td (apenas letras e espaços, sem números\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 704 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 721.5 Td (cpf) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 732 m 166 704 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 721.5 Td (VARCHAR\(14\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 732 m 254 704 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 721.5 Td (NOT NULL, UNIQUE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 732 m 346 704 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 721.5 Td (CPF formatado \(000.000.000-00\) e validado pelo) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 710.7 Td (cálculo oficial dos dígitos \(Módulo 11\).) Tj ET
+0.973 0.980 0.988 rg 36 676 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 676 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 693.5 Td (rg) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 704 m 166 676 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 693.5 Td (VARCHAR\(20\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 704 m 254 676 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 693.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 704 m 346 676 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 693.5 Td (Documento de identidade civil \(bloqueia) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 682.7 Td (valores negativos e caracteres inválidos\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 637 523 39 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 665.5 Td (data_nascimento) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 676 m 166 637 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 665.5 Td (DATE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 676 m 254 637 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 665.5 Td (NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 676 m 346 637 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 665.5 Td (Data retroativa válida; usada pelo Model) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 654.7 Td (Paciente para calcular a idade) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 643.9 Td (automaticamente.) Tj ET
+0.973 0.980 0.988 rg 36 609 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 609 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 626.5 Td (sexo) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 637 m 166 609 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 626.5 Td (ENUM) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 637 m 254 609 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 626.5 Td (M, F, Outro) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 637 m 346 609 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 626.5 Td (Identificação biológica/civil para ficha) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 615.7 Td (clínica.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 581 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 598.5 Td (telefone / email) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 609 m 166 581 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 598.5 Td (VARCHAR) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 609 m 254 581 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 598.5 Td (Telefone NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 609 m 346 581 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 598.5 Td (Telefone com DDD usado para o disparo) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 587.7 Td (automático no WhatsApp via Evolution API.) Tj ET
+0.973 0.980 0.988 rg 36 553 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 553 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 570.5 Td (tipo_sanguineo) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 581 m 166 553 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 570.5 Td (VARCHAR\(5\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 581 m 254 553 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 570.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 581 m 346 553 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 570.5 Td (Tipagem sanguínea ABO/Rh \(A+, A-, B+, B-, AB+,) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 559.7 Td (AB-, O+, O-\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 525 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 542.5 Td (alergias) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 553 m 166 525 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 542.5 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 553 m 254 525 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 542.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 553 m 346 525 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 542.5 Td (Campo crítico: quando preenchido, destaca um) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 531.7 Td (alerta vermelho no prontuário e na agenda.) Tj ET
+0.973 0.980 0.988 rg 36 497 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 497 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 514.5 Td (medicamentos_uso_continuo) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 525 m 166 497 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 514.5 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 525 m 254 497 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 514.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 525 m 346 497 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 514.5 Td (Lista de medicamentos contínuos exibida ao) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 503.7 Td (médico durante o atendimento.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 480 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 486.5 Td (historico_cirurgico) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 497 m 166 480 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 486.5 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 497 m 254 480 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 486.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 497 m 346 480 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 486.5 Td (Cirurgias prévias e comorbidades do paciente.) Tj ET
+0.973 0.980 0.988 rg 36 452 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 452 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 469.5 Td (convenio) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 480 m 166 452 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 469.5 Td (VARCHAR\(50\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 480 m 254 452 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 469.5 Td (Default:) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 458.7 Td (Particular) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 480 m 346 452 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 469.5 Td (Selecionado da listagem de convênios \(com) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 458.7 Td (opção de cadastrar novos convênios na hora\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 424 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 441.5 Td (numero_carteirinha) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 452 m 166 424 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 441.5 Td (VARCHAR\(50\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 452 m 254 424 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 441.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 452 m 346 424 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 441.5 Td (Código da carteira do plano de saúde \(bloqueia) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 430.7 Td (valores negativos\).) Tj ET
+0.973 0.980 0.988 rg 36 385 523 39 re f
+0.79 0.83 0.88 RG 0.5 w 36 385 523 39 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 413.5 Td (cep, cidade, estado) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 424 m 166 385 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 413.5 Td (VARCHAR / CHAR\(2\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 424 m 254 385 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 413.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 424 m 346 385 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 413.5 Td (Validados na API dos Correios) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 402.7 Td (\(CorreiosCepService\): impede CEP inexistente) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 391.9 Td (ou UF/Cidade divergentes.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 346 523 39 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 374.5 Td (endereco, numero, bairro) Tj ET
+0.79 0.83 0.88 RG 0.5 w 166 385 m 166 346 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 171 374.5 Td (VARCHAR) Tj ET
+0.79 0.83 0.88 RG 0.5 w 254 385 m 254 346 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 259 374.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 346 385 m 346 346 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 374.5 Td (Logradouro e bairro preenchidos pelos) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 363.7 Td (Correios; numero aceita apenas inteiros) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 351 352.9 Td (positivos \(> 0\).) Tj ET
+0.945 0.961 0.976 rg 36 316 523.28 18 re f
+0.118 0.227 0.541 rg 36 316 3.5 18 re f
+BT /F2 9.5 Tf 0.118 0.227 0.541 rg 45 320.5 Td (2.4. Migration 4: 2020_03_01_000002_create_consultas_table.php \(Tabela: consultas\)) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 299.8 Td (Gerencia a agenda médica, prevenção de conflito de horário, controle da fila de espera na recepção e valores) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 286.4 Td (financeiros.) Tj ET
+0.886 0.910 0.941 rg 36 260.2 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 260.2 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 266.2 Td (Coluna / Índice) Tj ET
+0.58 0.64 0.72 RG 0.5 w 151 278.2 m 151 260.2 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 156 266.2 Td (Tipo / Chave) Tj ET
+0.58 0.64 0.72 RG 0.5 w 236 278.2 m 236 260.2 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 241 266.2 Td (Restrições / FK) Tj ET
+0.58 0.64 0.72 RG 0.5 w 336 278.2 m 336 260.2 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 341 266.2 Td (Função no Sistema e Regras de Negócio) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 243.2 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 249.7 Td (id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 260.2 m 151 243.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 249.7 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 260.2 m 236 243.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 249.7 Td (PK, Auto Increment) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 260.2 m 336 243.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 249.7 Td (Número identificador do agendamento.) Tj ET
+0.973 0.980 0.988 rg 36 215.2 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 215.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 232.7 Td (paciente_id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 243.2 m 151 215.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 232.7 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 243.2 m 236 215.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 232.7 Td (FK -> pacientes\(id\)) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 221.9 Td (CASCADE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 243.2 m 336 215.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 232.7 Td (Paciente agendado. Se o paciente for removido,) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 221.9 Td (suas consultas são apagadas em cascata.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 187.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 204.7 Td (medico_id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 215.2 m 151 187.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 204.7 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 215.2 m 236 187.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 204.7 Td (FK -> users\(id\)) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 193.9 Td (CASCADE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 215.2 m 336 187.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 204.7 Td (Médico responsável pelo atendimento.) Tj ET
+0.973 0.980 0.988 rg 36 170.2 523 17 re f
+0.79 0.83 0.88 RG 0.5 w 36 170.2 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 176.7 Td (data_hora) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 187.2 m 151 170.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 176.7 Td (DATETIME) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 187.2 m 236 170.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 176.7 Td (NOT NULL, INDEX) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 187.2 m 336 170.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 176.7 Td (Data e horário exatos do início da consulta.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 142.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 159.7 Td (duracao_minutos) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 170.2 m 151 142.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 159.7 Td (INTEGER) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 170.2 m 236 142.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 159.7 Td (Default: 30) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 170.2 m 336 142.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 159.7 Td (Duração \(15, 30, 45 ou 60 min\) usada para) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 148.9 Td (calcular o intervalo e impedir choque de agenda.) Tj ET
+0.973 0.980 0.988 rg 36 114.2 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 114.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 131.7 Td (especialidade) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 142.2 m 151 114.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 131.7 Td (VARCHAR\(100\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 142.2 m 236 114.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 131.7 Td (NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 142.2 m 336 114.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 131.7 Td (Preenchida e bloqueada automaticamente a partir) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 120.9 Td (da especialidade do médico selecionado.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 86.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 103.7 Td (tipo_atendimento) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 114.2 m 151 86.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 103.7 Td (ENUM) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 114.2 m 236 86.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 103.7 Td (Default: rotina) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 114.2 m 336 86.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 103.7 Td (Valores: primeira_consulta, retorno, rotina ou) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 92.9 Td (urgencia.) Tj ET
+0.973 0.980 0.988 rg 36 58.2 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 58.2 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 75.7 Td (status) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 86.2 m 151 58.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 75.7 Td (ENUM) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 86.2 m 236 58.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 75.7 Td (Default: agendada) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 86.2 m 336 58.2 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 75.7 Td (Fluxo: agendada -> confirmada -> aguardando ->) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 64.9 Td (em_atendimento -> finalizada \(ou cancelada\).) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 12611 >>
+stream
+0.85 0.88 0.92 RG 0.7 w 36 34 m 559.28 34 l S
+BT /F1 8 Tf 0.35 0.40 0.48 rg 36 22 Td (Clínica Andrik - Documentação Técnica de Migrations e Fluxo do Sistema | Página 3) Tj ET
+0.886 0.910 0.941 rg 36 777 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 777 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 783 Td (Coluna / Índice) Tj ET
+BT /F2 8 Tf 0.06 0.09 0.16 rg 156 783 Td (Tipo / Chave) Tj ET
+BT /F2 8 Tf 0.06 0.09 0.16 rg 241 783 Td (Restrições / FK) Tj ET
+BT /F2 8 Tf 0.06 0.09 0.16 rg 341 783 Td (Função no Sistema e Regras de Negócio) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 749 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 766.5 Td (convenio / valor) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 777 m 151 749 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 766.5 Td (VARCHAR / DECIMAL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 777 m 236 749 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 766.5 Td (Valor >= 0.00) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 777 m 336 749 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 766.5 Td (Convênio e valor cobrado \(bloqueia números) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 755.7 Td (negativos; compõe o relatório financeiro\).) Tj ET
+0.973 0.980 0.988 rg 36 721 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 721 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 738.5 Td (motivo / observacoes) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 749 m 151 721 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 738.5 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 749 m 236 721 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 738.5 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 749 m 336 721 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 738.5 Td (Queixa inicial informada na marcação) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 727.7 Td (\(pré-preenche a anamnese do prontuário\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 693 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 710.5 Td (INDEX\(data_hora,) Tj ET
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 699.7 Td (medico_id\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 721 m 151 693 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 710.5 Td (Índice Composto) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 721 m 236 693 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 710.5 Td (Performance SQL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 721 m 336 693 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 710.5 Td (Acelera a consulta que verifica se o médico já) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 699.7 Td (possui agendamento no mesmo horário.) Tj ET
+0.945 0.961 0.976 rg 36 663 523.28 18 re f
+0.118 0.227 0.541 rg 36 663 3.5 18 re f
+BT /F2 9.5 Tf 0.118 0.227 0.541 rg 45 667.5 Td (2.5. Migration 5: 2020_03_01_000003_create_prontuarios_table.php \(Tabela: prontuarios\)) Tj ET
+BT /F1 9.2 Tf 0.06 0.09 0.16 rg 36 646.8 Td (Armazena o Prontuário Eletrônico do Paciente \(PEP\), sinais vitais, diagnóstico CID-10 e receituário médico.) Tj ET
+0.886 0.910 0.941 rg 36 620.6 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 620.6 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 626.6 Td (Coluna / Índice) Tj ET
+0.58 0.64 0.72 RG 0.5 w 151 638.6 m 151 620.6 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 156 626.6 Td (Tipo / Chave) Tj ET
+0.58 0.64 0.72 RG 0.5 w 236 638.6 m 236 620.6 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 241 626.6 Td (Restrições / FK) Tj ET
+0.58 0.64 0.72 RG 0.5 w 336 638.6 m 336 620.6 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 341 626.6 Td (Função no Sistema e Regras Clínicas) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 603.6 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 610.1 Td (id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 620.6 m 151 603.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 610.1 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 620.6 m 236 603.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 610.1 Td (PK, Auto Increment) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 620.6 m 336 603.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 610.1 Td (Número do registro de prontuário.) Tj ET
+0.973 0.980 0.988 rg 36 575.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 575.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 593.1 Td (paciente_id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 603.6 m 151 575.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 593.1 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 603.6 m 236 575.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 593.1 Td (FK -> pacientes\(id\)) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 582.3 Td (CASCADE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 603.6 m 336 575.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 593.1 Td (Paciente ao qual pertence a evolução clínica.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 547.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 565.1 Td (medico_id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 575.6 m 151 547.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 565.1 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 575.6 m 236 547.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 565.1 Td (FK -> users\(id\)) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 554.3 Td (CASCADE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 575.6 m 336 547.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 565.1 Td (Médico que assinou o atendimento \(apenas ele ou) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 554.3 Td (o Admin podem editar o registro\).) Tj ET
+0.973 0.980 0.988 rg 36 519.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 519.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 537.1 Td (consulta_id) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 547.6 m 151 519.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 537.1 Td (BIGINT UNSIGNED) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 547.6 m 236 519.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 537.1 Td (FK -> consultas\(id\)) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 526.3 Td (SET NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 547.6 m 336 519.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 537.1 Td (Consulta vinculada. Usa ON DELETE SET NULL para) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 526.3 Td (preservar o histórico médico sempre.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 491.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 509.1 Td (data_registro) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 519.6 m 151 491.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 509.1 Td (DATETIME) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 519.6 m 236 491.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 509.1 Td (NOT NULL, INDEX) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 519.6 m 336 491.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 509.1 Td (Momento exato do atendimento \(indexado junto ao) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 498.3 Td (paciente_id para a Linha do Tempo\).) Tj ET
+0.973 0.980 0.988 rg 36 463.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 463.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 481.1 Td (queixa_principal / hda) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 491.6 m 151 463.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 481.1 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 491.6 m 236 463.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 481.1 Td (Queixa NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 491.6 m 336 463.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 481.1 Td (Anamnese clínica \(Queixa Principal e História da) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 470.3 Td (Doença Atual\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 435.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 453.1 Td (pressao_arterial) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 463.6 m 151 435.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 453.1 Td (VARCHAR\(20\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 463.6 m 236 435.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 453.1 Td (NULLABLE \(Ex:) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 442.3 Td (120/80\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 463.6 m 336 435.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 453.1 Td (Validada no formato sistólica/diastólica sem) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 442.3 Td (valores negativos.) Tj ET
+0.973 0.980 0.988 rg 36 407.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 407.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 425.1 Td (frequencia_cardiaca) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 435.6 m 151 407.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 425.1 Td (INTEGER) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 435.6 m 236 407.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 425.1 Td (NULLABLE \(30 a 250) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 414.3 Td (bpm\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 435.6 m 336 407.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 425.1 Td (Batimentos por minuto \(bloqueia negativos, zero) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 414.3 Td (ou valores fora da faixa clínica\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 379.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 397.1 Td (temperatura) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 407.6 m 151 379.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 397.1 Td (DECIMAL\(4,1\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 407.6 m 236 379.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 397.1 Td (NULLABLE \(30 a 45) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 386.3 Td (°C\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 407.6 m 336 379.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 397.1 Td (Temperatura corporal em graus Celsius.) Tj ET
+0.973 0.980 0.988 rg 36 351.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 351.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 369.1 Td (peso / altura) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 379.6 m 151 351.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 369.1 Td (DECIMAL\(5,2 /) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 358.3 Td (4,2\)) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 379.6 m 236 351.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 369.1 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 379.6 m 336 351.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 369.1 Td (Usados pelo Model Prontuario para calcular) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 358.3 Td (automaticamente o IMC e sua classificação.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 323.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 341.1 Td (diagnostico / cid10) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 351.6 m 151 323.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 341.1 Td (TEXT / VARCHAR) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 351.6 m 236 323.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 341.1 Td (Diagnóstico NOT NULL) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 351.6 m 336 323.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 341.1 Td (Hipótese diagnóstica e código internacional) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 330.3 Td (CID-10 validado \(ex: I10, J03.9\).) Tj ET
+0.973 0.980 0.988 rg 36 295.6 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 295.6 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 313.1 Td (prescricao / exames /) Tj ET
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 302.3 Td (conduta) Tj ET
+0.79 0.83 0.88 RG 0.5 w 151 323.6 m 151 295.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 156 313.1 Td (TEXT) Tj ET
+0.79 0.83 0.88 RG 0.5 w 236 323.6 m 236 295.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 241 313.1 Td (NULLABLE) Tj ET
+0.79 0.83 0.88 RG 0.5 w 336 323.6 m 336 295.6 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 313.1 Td (Receituário médico, solicitação de exames e) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 341 302.3 Td (plano terapêutico \(prontos para impressão\).) Tj ET
+0.118 0.227 0.541 rg 36 261.6 523.28 20 re f
+BT /F2 10.5 Tf 1 1 1 rg 44 266.6 Td (3. PASSO A PASSO PARA EXPLICAR O FLUXO DO SISTEMA) Tj ET
+0.97 0.98 0.99 rg 36 181.6 523.28 70 re f
+0.78 0.83 0.89 RG 0.6 w 36 181.6 523.28 70 re S
+0.01 0.52 0.78 rg 36 181.6 3.5 70 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 238.6 Td (PASSO 1 - Autenticação e Perfis de Acesso \(Tabela users + Middleware CheckRole\)) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 225.6 Td (Ao fazer login \(/login\), o sistema valida se o usuário está ativo e carrega suas permissões: a) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 213.4 Td (Recepção cadastra pacientes e agenda consultas; o Médico \(sempre padronizado com o prefixo) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 201.2 Td ("Dr. Nome"\) atende a fila de espera e preenche prontuários; o Administrador gerencia toda a) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 189 Td (clínica e a equipe \(/usuarios\).) Tj ET
+0.97 0.98 0.99 rg 36 91.1 523.28 82.5 re f
+0.78 0.83 0.89 RG 0.6 w 36 91.1 523.28 82.5 re S
+0.01 0.52 0.78 rg 36 91.1 3.5 82.5 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 160.6 Td (PASSO 2 - Cadastro de Paciente, Validações e API dos Correios \(Tabela pacientes\)) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 147.6 Td (No formulário de paciente, todos os campos possuem tratamento visual em tempo real \(bloqueando) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 135.4 Td (números negativos, letras em campos numéricos ou datas futuras\). O CPF é validado pelo cálculo) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 123.2 Td (oficial Módulo 11. Ao digitar os 8 dígitos do CEP, o CorreiosCepService consulta a API dos) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 111 Td (Correios, preenche endereço, bairro, cidade e UF automaticamente, e impede o cadastro se o CEP) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 98.8 Td (não existir ou se a Cidade/UF divergirem dos Correios.) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 5055 >>
+stream
+0.85 0.88 0.92 RG 0.7 w 36 34 m 559.28 34 l S
+BT /F1 8 Tf 0.35 0.40 0.48 rg 36 22 Td (Clínica Andrik - Documentação Técnica de Migrations e Fluxo do Sistema | Página 4) Tj ET
+0.97 0.98 0.99 rg 36 700 523.28 95 re f
+0.78 0.83 0.89 RG 0.6 w 36 700 523.28 95 re S
+0.01 0.52 0.78 rg 36 700 3.5 95 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 782 Td (PASSO 3 - Agendamento, Bloqueio de Especialidade e Disparo WhatsApp \(Tabela consultas\)) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 769 Td (Ao agendar uma consulta \(/consultas/create\), a escolha do Médico preenche e bloqueia) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 756.8 Td (automaticamente o campo Especialidade. O Convênio é escolhido de uma listagem dinâmica \(que) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 744.6 Td (permite cadastrar novos convênios na hora\). O sistema verifica no banco se o médico já possui) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 732.4 Td (consulta no mesmo horário. Confirmado o agendamento, o EvolutionWhatsAppService formata o) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 720.2 Td (telefone \(55 + DDD + número\) e dispara a confirmação no WhatsApp do paciente via Evolution) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 708 Td (API.) Tj ET
+0.97 0.98 0.99 rg 36 609.5 523.28 82.5 re f
+0.78 0.83 0.89 RG 0.6 w 36 609.5 523.28 82.5 re S
+0.01 0.52 0.78 rg 36 609.5 3.5 82.5 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 679 Td (PASSO 4 - Recepção, Fila de Espera e Atendimento Médico com IMC \(Tabela prontuarios\)) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 666 Td (Quando o paciente chega, a recepção muda o status para Confirmada e Aguardando na Recepção,) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 653.8 Td (enviando-o para a Fila de Espera do médico. O médico clica em Atender, visualiza alertas de) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 641.6 Td (Alergias em destaque, preenche Anamnese, Sinais Vitais \(com cálculo automático de IMC\),) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 629.4 Td (Diagnóstico CID-10 e Receituário. Ao salvar o prontuário, a consulta muda automaticamente para) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 617.2 Td (Finalizada.) Tj ET
+0.97 0.98 0.99 rg 36 531.5 523.28 70 re f
+0.78 0.83 0.89 RG 0.6 w 36 531.5 523.28 70 re S
+0.01 0.52 0.78 rg 36 531.5 3.5 70 re f
+BT /F2 9 Tf 0.06 0.09 0.16 rg 46 588.5 Td (PASSO 5 - Linha do Tempo Clínica e Relatórios Gerenciais) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 575.5 Td (Na Linha do Tempo \(/pacientes/{id}/historico\), todas as consultas e prontuários do paciente) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 563.3 Td (são exibidos em ordem cronológica. Nos Relatórios \(/relatorios\), a direção filtra atendimentos) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 551.1 Td (por período, médico, paciente, convênio e status, visualizando taxa de conclusão, faturamento) Tj ET
+BT /F1 8.7 Tf 0.18 0.23 0.31 rg 46 538.9 Td (total e layout de impressão.) Tj ET
+0.118 0.227 0.541 rg 36 499.5 523.28 20 re f
+BT /F2 10.5 Tf 1 1 1 rg 44 504.5 Td (4. COMANDOS PRINCIPAIS PARA DEMONSTRAÇÃO TÉCNICA) Tj ET
+0.886 0.910 0.941 rg 36 471.5 523 18 re f
+0.58 0.64 0.72 RG 0.6 w 36 471.5 523 18 re S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 41 477.5 Td (Comando no Terminal) Tj ET
+0.58 0.64 0.72 RG 0.5 w 221 489.5 m 221 471.5 l S
+BT /F2 8 Tf 0.06 0.09 0.16 rg 226 477.5 Td (O que executa no sistema) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 454.5 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 461 Td (php artisan migrate) Tj ET
+0.79 0.83 0.88 RG 0.5 w 221 471.5 m 221 454.5 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 461 Td (Executa todas as migrations pendentes na ordem cronológica.) Tj ET
+0.973 0.980 0.988 rg 36 426.5 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 426.5 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 444 Td (php artisan migrate:fresh --seed) Tj ET
+0.79 0.83 0.88 RG 0.5 w 221 454.5 m 221 426.5 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 444 Td (Recria todas as 5 tabelas do zero e popula médicos, pacientes, consultas e) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 433.2 Td (prontuários iniciais.) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 398.5 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 416 Td (php artisan db:seed --class=UserSeeder) Tj ET
+0.79 0.83 0.88 RG 0.5 w 221 426.5 m 221 398.5 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 416 Td (Atualiza apenas o corpo clínico \(Dr. Nome\) e usuários padrão sem apagar) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 405.2 Td (pacientes.) Tj ET
+0.973 0.980 0.988 rg 36 370.5 523 28 re f
+0.79 0.83 0.88 RG 0.5 w 36 370.5 523 28 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 388 Td (php vendor/bin/phpunit) Tj ET
+0.79 0.83 0.88 RG 0.5 w 221 398.5 m 221 370.5 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 388 Td (Executa a suíte de testes automatizados \(CPF, Correios, WhatsApp Evolution) Tj ET
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 377.2 Td (API, IMC e Agenda\).) Tj ET
+0.79 0.83 0.88 RG 0.5 w 36 353.5 523 17 re S
+BT /F3 7.8 Tf 0.08 0.12 0.20 rg 41 360 Td (php artisan serve --port=8000) Tj ET
+0.79 0.83 0.88 RG 0.5 w 221 370.5 m 221 353.5 l S
+BT /F1 8.2 Tf 0.08 0.12 0.20 rg 226 360 Td (Inicia o servidor web local em http://localhost:8000.) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000143 00000 n 
+0000000240 00000 n 
+0000000342 00000 n 
+0000000442 00000 n 
+0000010130 00000 n 
+0000010282 00000 n 
+0000025342 00000 n 
+0000025494 00000 n 
+0000038158 00000 n 
+0000038312 00000 n 
+0000043419 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+43573
+%%EOF
